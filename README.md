@@ -1,36 +1,84 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Weather App
+
+Real-time weather application built with Next.js 16, React 19, and Tailwind CSS v4.
+
+## Features
+
+- **Real-time Weather Data**: Fetches accurate weather information using the OpenWeatherMap API (One Call API 3.0).
+- **Search Capability**: Search for any city worldwide.
+- **Geolocation Support**: Automatically detect your current location.
+- **Animated Icons**: Premium animated GIFs for weather conditions with fallback support.
+- **Dark Mode**: Fully supported dark/light theme toggling with persistent preference.
+- **Responsive Design**: Mobile-first layout that works on all devices.
+- **Localized**: Full Indonesian language support for weather descriptions.
+
+## Technology Stack
+
+- **Framework**: Next.js 16 (App Router)
+- **Library**: React 19
+- **Styling**: Tailwind CSS v4
+- **Testing**: Vitest + React Testing Library
+- **Font**: Poppins (via next/font)
+- **Data Source**: OpenWeatherMap API
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js 18+
+- pnpm (recommended) or npm/yarn
+
+### Installation
+
+1. Clone the repository
+2. Install dependencies:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+pnpm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Configuration
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Create a .env file in the root directory with the following variables:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```env
+NEXT_PUBLIC_OPENWEATHER_API_KEY=your_api_key_here
+NEXT_PUBLIC_GEO_BASE_URL=http://api.openweathermap.org/geo/1.0
+NEXT_PUBLIC_DATA_BASE_URL=https://api.openweathermap.org/data/3.0
+```
 
-## Learn More
+### Running Locally
 
-To learn more about Next.js, take a look at the following resources:
+Start the development server:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+pnpm dev
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Open http://localhost:3000 in your browser.
 
-## Deploy on Vercel
+## Testing
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+This project uses Vitest for unit and integration testing.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Run all tests:
+```bash
+pnpm test
+```
+
+Run tests in UI mode:
+```bash
+pnpm test:ui
+```
+
+## Project Structure
+
+- src/app: App Router pages and layouts
+- src/components: Reusable UI components
+- src/lib: Utility functions and API services
+- src/types.ts: TypeScript type definitions
+- public/icons: Weather animation assets
+
+## License
+
+Private project.
