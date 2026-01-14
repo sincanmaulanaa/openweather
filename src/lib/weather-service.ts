@@ -8,8 +8,8 @@ import {
   WeatherError,
 } from '@/types';
 
-const GEO_BASE_URL = 'http://api.openweathermap.org/geo/1.0';
-const DATA_BASE_URL = 'https://api.openweathermap.org/data/3.0';
+const GEO_BASE_URL = process.env.NEXT_PUBLIC_GEO_BASE_URL;
+const DATA_BASE_URL = process.env.NEXT_PUBLIC_DATA_BASE_URL;
 
 /**
  * Parse temperature from Kelvin to Celsius

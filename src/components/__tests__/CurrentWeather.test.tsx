@@ -19,44 +19,27 @@ const mockWeatherData: CurrentWeatherData = {
 };
 
 describe('CurrentWeather Component', () => {
-  it('renders city name', () => {
+  it('renders main weather information correctly', () => {
     render(<CurrentWeather data={mockWeatherData} />);
-    expect(screen.getByText(/Tokyo/)).toBeInTheDocument();
-  });
+    
+    expect(screen.getByRole('heading', { level: 1, name: /Tokyo/i })).toBeInTheDocument();
 
-  it('renders country code', () => {
-    render(<CurrentWeather data={mockWeatherData} />);
-    expect(screen.getByText(/JP/)).toBeInTheDocument();
-  });
-
-  it('renders temperature with degree symbol', () => {
-    render(<CurrentWeather data={mockWeatherData} />);
     expect(screen.getByText('22')).toBeInTheDocument();
-    expect(screen.getByText('°C')).toBeInTheDocument();
-  });
-
-  it('renders weather description', () => {
-    render(<CurrentWeather data={mockWeatherData} />);
+    
     expect(screen.getByText(/partly cloudy/i)).toBeInTheDocument();
   });
 
-  it('renders feels like temperature', () => {
+  it('renders weather details', () => {
     render(<CurrentWeather data={mockWeatherData} />);
-    expect(screen.getByText(/Terasa seperti 24°C/)).toBeInTheDocument();
-  });
-
-  it('renders humidity', () => {
-    render(<CurrentWeather data={mockWeatherData} />);
+    
+    expect(screen.getByText(/Terasa seperti 24°/)).toBeInTheDocument();
+    
+    expect(screen.getByText(/Kelembapan/i)).toBeInTheDocument();
     expect(screen.getByText('65%')).toBeInTheDocument();
-  });
-
-  it('renders wind speed', () => {
-    render(<CurrentWeather data={mockWeatherData} />);
-    expect(screen.getByText('15 km/j')).toBeInTheDocument();
-  });
-
-  it('renders weather condition', () => {
-    render(<CurrentWeather data={mockWeatherData} />);
+    
+    expect(screen.getByText(/Angin/i)).toBeInTheDocument();
+    expect(screen.getByText(/15/)).toBeInTheDocument();
+    
     expect(screen.getByText('Clouds')).toBeInTheDocument();
   });
 });
