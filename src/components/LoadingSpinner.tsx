@@ -33,7 +33,7 @@ export default function LoadingSpinner() {
         </div>
       </div>
       
-      <p className="text-text-muted font-medium text-lg animate-pulse">
+      <p className="text-text-muted font-medium text-lg animate-pulse text-center">
         {message}
       </p>
     </div>
